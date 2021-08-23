@@ -1,3 +1,4 @@
 #TODO
-Add validations for negative employeeId, employeeSalary.
-Add validation for null employeeName.
+Add validations for negative and null employeeId, employeeSalary.
+Add validation for null and empty employeeName.
+Add test cases for exceptions
