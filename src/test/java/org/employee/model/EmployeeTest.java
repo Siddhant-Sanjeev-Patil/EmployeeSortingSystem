@@ -1,8 +1,12 @@
 package org.employee.model;
 
+import org.employee.util.EmployeeUtil;
 import org.employee.util.PojoTestUtil;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.Collections;
+import java.util.List;
 
 public class EmployeeTest {
     Employee employee = new Employee(1, 10000, "Aditya");
@@ -23,6 +27,17 @@ public class EmployeeTest {
 
         result = employee.compareTo(new Employee(1, 10000, "Siddhant"));
         Assert.assertTrue(result < 0);
+
+        result = employee.compareTo(new Employee(0, 10000, "Siddhant"));
+        Assert.assertTrue(result > 0);
+    }
+
+    @Test
+    public void testEmployeeSorting() {
+        List<Employee> employeeList = EmployeeUtil.getEmployees();
+        Collections.sort(employeeList);
+        Assert.assertEquals(1, employeeList.get(0).getEmployeeId());
+        Assert.assertEquals(5, employeeList.get(4).getEmployeeId());
     }
 
     //@Test
