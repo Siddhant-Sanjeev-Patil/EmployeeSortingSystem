@@ -1,10 +1,11 @@
 package org.employee.model;
 
 import java.util.Comparator;
+
 import static java.util.Collections.reverseOrder;
 import static java.util.Comparator.comparingLong;
 
-public class Employee implements Comparable<Employee>{
+public class Employee implements Comparable<Employee> {
     private long employeeId;
     private long employeeSalary;
     private String employeeName;
@@ -49,7 +50,6 @@ public class Employee implements Comparable<Employee>{
     }
 
     /**
-     *
      * This function compares employee on the basis of
      * first employeeId in ascending
      * then employeeSalary in descending
@@ -57,9 +57,9 @@ public class Employee implements Comparable<Employee>{
      */
     @Override
     public int compareTo(Employee employee) {
-        return Comparator.comparingLong((Employee p)->p.employeeId)
+        return Comparator.comparingLong((Employee p) -> p.employeeId)
                 .thenComparing(reverseOrder(comparingLong(Employee::getEmployeeSalary)))
-                .thenComparing(p->p.employeeName)
+                .thenComparing(p -> p.employeeName)
                 .compare(this, employee);
     }
 }
